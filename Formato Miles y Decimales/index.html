@@ -14,6 +14,7 @@
     
     <input type="text" placeholder="Ingresa el numero a formatear" id="num">
     <button onclick="formatearNum()">Formatear</button>
+    <button onclick="limpiarFormato()">Limpiar Formato</button>
     <script src="formatMilesDec.js">
     </script>
     <script>
@@ -21,6 +22,11 @@
         {
             var numero = document.getElementById("num");
             numero.value = formatearNumero(num.value);
+        }
+        function limpiarFormato()
+        {
+            var numero = document.getElementById("num");
+            numero.value = quitarFormato(num.value);            
         }
     </script>
 </body>

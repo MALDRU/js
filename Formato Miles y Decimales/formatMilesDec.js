@@ -1,14 +1,20 @@
 /**
- * @Author: MALDRU
- * @Description: Funcion para dar formato a un numero en miles y decimales, el numero solo puede contener un separador decimal y 0 separadores de miles.
- * @License: MIT
+ * @author: MALDRU
+ * @fileoverview: Funciones para dar formato a un numero en miles y decimales y para limpiar el formato a su estado original.
+ * @license: MIT
  */
 
 const separadorMiles = ',';
 const separadorDecimal = '.';
 
+/**
+ * Da formato al numero pasado por parametro, separando en miles.
+ * @param {string} numero Numero a dar formato, el numero solo puede contener un separador decimal y 0 separadores de miles.
+ * @return {string} Retorna el numero formateado (separado por miles).
+ */
 function formatearNumero(numero)
-{    
+{
+    if (numero == null || numero == "") return 0;
     //numero de elementos
     var numElementos = numero.length;
     //enteros
@@ -62,4 +68,20 @@ function formatearNumero(numero)
     }    
     // devolver numero formateado
     return numFormateado;
+}
+
+/**
+ * Quita el formato, obtenido con la funcion "formatearNumero"
+ * @param {string} numero cadena a limpiar formato
+ * @return {string} numero sin formato
+ */
+function quitarFormato(numero)
+{
+    if(separadorMiles == ',') 
+    {
+        return numero.replace(/,/g, "");
+    }else
+    {
+        return numero.replace(/./g, "");
+    }    
 }
